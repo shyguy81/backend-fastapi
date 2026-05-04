@@ -2,12 +2,8 @@ name: Build & Publish API
 
 on:
   push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    branches:
-      - main
+    tags:
+      - v*
 
 env:
   REGISTRY: ghcr.io
