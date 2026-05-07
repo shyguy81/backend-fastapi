@@ -57,5 +57,7 @@ class ContactResponse(BaseModel):
 
     @field_serializer('created_at', 'updated_at')
     def serialize_datetime(self, value: datetime) -> str | None:
-        """Sérialiser les datetimes en ISO format pour JSON"""
-        return value.isoformat() if value else None
+        """Sérialiser les datetimes en ISO format avec Z pour JSON"""
+        if not value:
+            return None
+        return value.isoformat() + 'Z'
